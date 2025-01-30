@@ -47,8 +47,12 @@ case $personalizar in
 	*) echo "Respuesta no valida" ;;
 esac
 
+# descargar my-dots2
+git clone https://github.com/TakYzGG/my-dots2
+
 # archivos generales
 if [ "$personalizar" -eq 1 ]; then
+	mkdir /home/$user/.local/bin
 	cp my-dots2/scripts/dmenu/AppImage /home/$user/.local/bin
 	cp my-dots2/scripts/dmenu/PowerMenu /home/$user/.local/bin
 	cp my-dots2/scripts/dmenu/Screenshot /home/$user/.local/bin
@@ -63,7 +67,7 @@ case $wm in
 	   ;;
 
 	# dwm
-	2) mkdir /home/$user/.config/dwmblocks && mkdir /home/$user/.suckless
+	2) mkdir /home/$user/.config mkdir /home/$user/.config/dwmblocks && mkdir /home/$user/.suckless
 	   cp -r my-dots2/suckless/temas/* /home/$user/.suckless 
 	   cp my-dots2/scripts/bars/* /home/$user/.config/dwmblocks
 	   ;;

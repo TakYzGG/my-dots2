@@ -89,6 +89,7 @@ case $wm in
 	   cd my-dots2/suckless/dwm && make install clean && cd ../../..
 	   cd my-dots2/suckless/dwmblocks && make install clean && cd ../../..
 	   cd my-dots2/suckless/st && make install clean && cd ../../..
+	   rm -rf my-dots2
 	   ;;
 
 	# fluxbox
