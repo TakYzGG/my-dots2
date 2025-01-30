@@ -1,15 +1,15 @@
 #!/bin/sh
 
-# Teclado
+# teclado
 #setxkbmap es
 #setxkbmap latam
 #setxkbmap -option caps:swapescape
 
-# dwm
+# aplicaciones de dwm
 #dwmblocks &
 #nm-applet &
 #picom &
-#./.fehbg
+#~/.fehbg
 #unclutter &
 #xrdb -merge ~/.Xresources
 
