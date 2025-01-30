@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Teclado
+#setxkbmap es
+#setxkbmap latam
+#setxkbmap -option caps:swapescape
+
+# windows manager
+#exec i3
+#exec bspwm
+#exec openbox-session
+#exec startfluxbox
+
+# dwm
+#dwmblocks &
+#nm-applet &
+#picom &
+#./.fehbg
+#unclutter &
+
+# deskop environment
+#exec kde5
+#exec lxde
+#exec mate
+#exec xfce4
