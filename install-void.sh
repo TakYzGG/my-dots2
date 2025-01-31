@@ -137,9 +137,6 @@ fi
 # descargar xinit
 wget -O /home/$user/.xinitrc https://raw.githubusercontent.com/TakYzGG/my-dots2/main/dots/xinitrc
 
-# permisos al usuario
-usermod -aG video $user
-
 # iniciar servicios
 # acpi
 ln -s /etc/sv/acpid /var/service
@@ -149,14 +146,17 @@ ln -s /etc/sv/alsa /var/service
 
 # bluetooth
 ln -s /etc/sv/bluetoothd /var/service
-sv enable bluetoothd
 
 # dbus
 ln -s /etc/sv/dbus /var/service
 
 # NetworkManager
 ln -s /etc/sv/NetworkManager /var/service
-sv enable NetworkManager
+
+# permisos al usuario
+usermod -aG bluetooth $user
+usermod -aG network $user
+usermod -aG video $user
 
 # Eliminar ttys de los servicios
 rm -rf /var/service/agetty-tty3
