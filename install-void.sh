@@ -134,6 +134,9 @@ if [ "$zram" -eq 1 ]; then
 	echo "/usr/local/bin/zram start" >> /etc/rc.local
 fi
 
+# script para configurar mouse / touchpad
+wget -O /home/$user/.mouse_touchpad https://raw.githubuserconten.com/TakYzGG/my-dots2/main/scripts/mouse_touchpad
+
 # descargar xinit
 wget -O /home/$user/.xinitrc https://raw.githubusercontent.com/TakYzGG/my-dots2/main/dots/xinitrc
 
