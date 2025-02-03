@@ -13,7 +13,7 @@ static const unsigned int gappiv    		= 2;       	/* vert inner gap between wind
 static const unsigned int gappoh    		= 2;       	/* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    		= 2;       	/* vert outer gap between windows and screen edge */
 static int smartgaps          				= 0;        /* 1 means no outer gap when there is only one window */
-static const int user_bh 					= 17;   	/*Ajusta el valor según el alto deseado */
+static const int user_bh 					= 16;   	/*Ajusta el valor según el alto deseado */
 static int showbar            				= 1;        /* 0 means no bar */
 static int topbar             				= 1;        /* 0 means bottom bar */
 static char font[]                 = "Ubuntu Mono:bold:size=10";
@@ -91,7 +91,7 @@ static const Layout layouts[] = {
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
- { "font",                    STRING,  &font },
+		{ "font",               STRING,  &font },
 		{ "normbgcolor",        STRING,  &normbgcolor },
 		{ "normbordercolor",    STRING,  &normbordercolor },
 		{ "normfgcolor",        STRING,  &normfgcolor },
@@ -108,6 +108,8 @@ ResourcePref resources[] = {
 };
 
 #include "movestack.c"
+#include <X11/XF86keysym.h>
+
 static const Key keys[] = {
 
 	/* modifier                     key        function        argument */
@@ -116,7 +118,7 @@ static const Key keys[] = {
 	{ MODKEY,			 			XK_Return, spawn,		   SHCMD("st") },
 	{ MODKEY, 						XK_F1, 	   spawn,		   SHCMD("dmenu_run -i -p 'Ejecutar'") },
 	{ MODKEY, 						XK_w, 	   spawn,		   SHCMD("librewolf") },
-	{ MODKEY, 						XK_e, 	   spawn,		   SHCMD("thunar") },
+	{ MODKEY, 						XK_e, 	   spawn,		   SHCMD("st -e lf") },
 	{ MODKEY, 						XK_m, 	   spawn,		   SHCMD("st -e cmus") },
 
 //	Scripts
@@ -127,13 +129,43 @@ static const Key keys[] = {
 	{ MODKEY, 						XK_F12,	   spawn,		   SHCMD("PowerMenu") },
 
 //	Volumen
-	{ MODKEY|ShiftMask, 			XK_plus,   spawn,		   SHCMD("pamixer -i 5 && kill -44 $(pidof dwmblocks)") },
-	{ MODKEY|ShiftMask, 			XK_minus,  spawn,		   SHCMD("pamixer -d 5 && kill -44 $(pidof dwmblocks)") },
-	{ MODKEY|ShiftMask, 			XK_period, spawn,		   SHCMD("pamixer -t && kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioRaiseVolume,	spawn,		   SHCMD("pamixer -i 5 && kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioLowerVolume, 	spawn,		   SHCMD("pamixer -d 5 && kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioMute,			spawn,		   SHCMD("pamixer -t && kill -44 $(pidof dwmblocks)") },
 
 //  Brillo
-	{ MODKEY|ControlMask, 			XK_plus,   spawn,		   SHCMD("brightnessctl set +5% && kill -44 $(pidof dwmblocks)") },
-	{ MODKEY|ControlMask, 			XK_minus,  spawn,		   SHCMD("brightnessctl set 5%- && kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_MonBrightnessUp,   	spawn,		   SHCMD("brightnessctl set +5% && kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_MonBrightnessDown,  spawn,		   SHCMD("brightnessctl set 5%- && kill -44 $(pidof dwmblocks)") },
+
+ /* VOLUM - BRILLANTOR */
+/*    { 0, XF86XK_AudioMute,          spawn,    SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle && kill -44 $(pidof dwmblocks)") },
+    { 0, XF86XK_AudioRaiseVolume,   spawn,    SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5% && kill -44 $(pidof dwmblocks)") },
+    { 0, XF86XK_AudioLowerVolume,   spawn,    SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5% && kill -44 $(pidof dwmblocks)") },
+    { 0, XF86XK_MonBrightnessUp,    spawn,    SHCMD("light -A 3") },
+    { 0, XF86XK_MonBrightnessDown,  spawn,    SHCMD("light -U 3") },
+    { 0, XF86XK_AudioPrev,          spawn,    SHCMD("mpc prev") },
+    { 0, XF86XK_AudioNext,          spawn,    SHCMD("mpc next") },
+    { 0, XF86XK_AudioPause,         spawn,    SHCMD("mpc pause") },
+    { 0, XF86XK_AudioPlay,          spawn,    SHCMD("mpc play") },
+    { 0, XF86XK_AudioStop,          spawn,    SHCMD("mpc stop") },
+    { 0, XF86XK_AudioRewind,        spawn,    SHCMD("mpc seek -10") },
+    { 0, XF86XK_AudioForward,       spawn,    SHCMD("mpc seek +10") },
+    { 0, XF86XK_AudioMedia,         spawn,    SHCMD(TERMINAL " -e ncmpcpp") },
+    { 0, XF86XK_AudioMicMute,       spawn,    SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") },
+    { 0, XF86XK_PowerOff,           spawn,    SHCMD("sysact") },
+    { 0, XF86XK_Calculator,         spawn,    SHCMD(TERMINAL " -e bc -l") },
+    { 0, XF86XK_Sleep,              spawn,    SHCMD("sudo -A zzz") },
+    { 0, XF86XK_WWW,                spawn,    SHCMD(BROWSER) },
+    { 0, XF86XK_DOS,                spawn,    SHCMD(TERMINAL) },
+    { 0, XF86XK_ScreenSaver,        spawn,    SHCMD("slock & xset dpms force off") },
+    { 0, XF86XK_TaskPane,           spawn,    SHCMD(TERMINAL " -e htop") },
+    { 0, XF86XK_Mail,               spawn,    SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks") },
+    //{ 0, XF86XK_MyComputer,         spawn,    SHCMD(TERMINAL " -e nnn /") },
+    { 0, XF86XK_Launch1,            spawn,    SHCMD("xset dpms force off") },
+    { 0, XF86XK_TouchpadToggle,     spawn,    SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") },
+    { 0, XF86XK_TouchpadOff,        spawn,    SHCMD("synclient TouchpadOff=1") },
+    { 0, XF86XK_TouchpadOn,         spawn,    SHCMD("synclient TouchpadOff=0") },
+	*/
 
 //	Cambiar de ventana
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },

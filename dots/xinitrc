@@ -6,15 +6,15 @@
 #setxkbmap -option caps:swapescape
 
 # touchpad / mouse
-#~/.mouse
+#~/.mouse_touchpad
 
 # aplicaciones de dwm
+#xrdb -merge ~/.Xresources
 #dwmblocks &
 #nm-applet &
 #picom &
 #~/.fehbg
 #unclutter &
-#xrdb -merge ~/.Xresources
 
 # window managers
 #exec dbus-run-session bspwm
@@ -28,9 +28,3 @@
 #exec dbus-run-session startlxde
 #exec dbus-run-session mate-session
 #exec dbus-run-session startxfce4
-
-# deskop environment
-#exec kde5
-#exec lxde
-#exec mate
-#exec xfce4

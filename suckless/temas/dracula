@@ -26,7 +26,6 @@ dwm.mfact:             0.5
 
 ! Fuentes
 dwm.font:              Ubuntu Mono:bold:size=10
-dwm.dmenufont:         Ubuntu Mono:bold:size=9
 
 ! St (Simple terminal)
 ! Fondo y primer plano
@@ -52,7 +51,6 @@ st.color13: #ff79c6
 st.color14: #8be9fd
 st.color15: #ffffff
 
-! Otros ajustes
 st.font:      Ubuntu Mono:bold:size=10
 st.termname:  st-256color
 st.blinktimeout:  800
@@ -61,7 +59,7 @@ st.tabspaces:     4
 st.borderpx:      2
 
 ! Dmenu
-dmenu.font : Ubuntu Mono:bold:size=9
+dmenu.font : Ubuntu Mono:bold:size=8
 dmenu.background : #282a36
 dmenu.foreground : #bd93f9
 dmenu.selbackground : #bd93f9
