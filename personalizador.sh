@@ -56,7 +56,6 @@ if [ "$personalizar" -eq 1 ]; then
 	cp my-dots2/scripts/dmenu/AppImage /home/$user/.local/bin
 	cp my-dots2/scripts/dmenu/PowerMenu /home/$user/.local/bin
 	cp my-dots2/scripts/dmenu/Screenshot /home/$user/.local/bin
-	cp my-dots2/scripts/dmenu/Suckles-Themes /home/$user/.local/bin
 	cp my-dots2/scripts/dmenu/Wallpaper /home/$user/.local/bin
 	chmod +x /home/$user/.local/bin*
 	cp picom/picom.conf /home/$user/.config
@@ -73,10 +72,11 @@ case $wm in
 	   cp -r my-dots2/suckless/temas/* /home/$user/.suckless 
 	   cp my-dots2/scripts/bars/* /home/$user/.config/dwmblocks
 	   chmod +x /home/$user/.config/dwmblocks/*
+	   cp my-dots2/scripts/dmenu/Suckles-Themes /home/$user/.local/bin
 	   ;;
 
 	# fluxbox
-	3) xbps-install -y fluxbox tint2 lxterminal
+	3) xbps-install -y fluxbox lxterminal
 	   ;;
 
 	# i3 wm

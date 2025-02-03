@@ -64,18 +64,18 @@ fi
 
 case $tipo_instalacion in
 	# minima
-	1) xbps-install -y acpi alsa-utils binutils blueman brightnessctl exfat-utils firefox gcc git glibc-devel libX11-devel libXft-devel libXinerama-devel libXrender-devel make NetworkManager network-manager-applet neovim net-tools pamixer picom pkg-config p7zip pulseaudio pulseaudio-utils python3 void-repo-multilib wget xclip xinit xorg xz zip unzip
+	1) xbps-install -y acpi alsa-utils binutils blueman brightnessctl elogind exfat-utils firefox gcc git glibc-devel gvfs libX11-devel libXft-devel libXinerama-devel libXrender-devel make NetworkManager network-manager-applet neovim net-tools pamixer picom pkg-config p7zip pulseaudio pulseaudio-utils python3 void-repo-multilib wget xclip xinit xorg xz zip unzip
 	   ;;
 
 	# completa
-	2) xbps-install -y acpi alsa-utils audaciousc binutils blueman brightnessctl btop exfat-utils firefox galculator gcc git glibc-devel leafpad libreoffice libX11-devel libXft-devel libXinerama-devel libXrender-devel make mirage mpv NetworkManager network-manager-applet  neovim net-tools pamixer pavucontrol picom pkg-config p7zip pulseaudio pulseaudio-utils python3 ssr Thunar thunar-archive-plugin thunar-volman void-repo-multilib wget xarchiver xclip xinit xorg xz zip unzip
+	2) xbps-install -y acpi alsa-utils audaciousc binutils blueman brightnessctl btop elogind exfat-utils firefox galculator gcc git glibc-devel gvfs leafpad libreoffice libX11-devel libXft-devel libXinerama-devel libXrender-devel make mirage mpv NetworkManager network-manager-applet  neovim net-tools pamixer pavucontrol picom pkg-config p7zip pulseaudio pulseaudio-utils python3 ssr Thunar thunar-archive-plugin thunar-volman void-repo-multilib wget xarchiver xclip xinit xorg xz zip unzip
 	   ;;
 	*) echo "Respuesta no valida" ;;
 esac
 
 # paquetes para windows manager
 if [ "$wm_de" -eq 1 ]; then
-	xbps-install -y fastfetch feh mpv vifm cmus scrot mupdf arandr gparted lxappearance unclutter
+	xbps-install -y arandr cmus fastfetch feh gparted lxappearance lf mpv mupdf scrot unclutterr
 fi
 
 case $wm in
@@ -152,6 +152,9 @@ ln -s /etc/sv/bluetoothd /var/service
 
 # dbus
 ln -s /etc/sv/dbus /var/service
+
+# elogind
+ln -s /etc/sv/elogind /var/service
 
 # NetworkManager
 ln -s /etc/sv/NetworkManager /var/service
