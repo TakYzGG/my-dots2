@@ -1187,24 +1187,28 @@ getatomprop(Client *c, Atom prop)
 pid_t
 getstatusbarpid()
 {
-	char buf[32], *str = buf, *c;
-	FILE *fp;
+    char buf[32], *str = buf, *c;
+    FILE *fp;
 
-	if (statuspid > 0) {
-		snprintf(buf, sizeof(buf), "/proc/%u/cmdline", statuspid);
-		if ((fp = fopen(buf, "r"))) {
-			fgets(buf, sizeof(buf), fp);
-			while ((c = strchr(str, '/')))
-				str = c + 1;
-			fclose(fp);
-			if (!strcmp(str, STATUSBAR)) return statuspid;
-		}
-	}
-	if (!(fp = popen("pidof -s "STATUSBAR, "r")))
-		return -1;
-	fgets(buf, sizeof(buf), fp);
-	pclose(fp);
-	return strtoul(buf, NULL, 10);
+    if (statuspid > 0) {
+        snprintf(buf, sizeof(buf), "/proc/%u/cmdline", statuspid);
+        if ((fp = fopen(buf, "r"))) {
+            if (fgets(buf, sizeof(buf), fp)) {  // Verificar que fgets tenga éxito
+                while ((c = strchr(str, '/')))
+                    str = c + 1;
+            }
+            fclose(fp);
+            if (!strcmp(str, STATUSBAR)) return statuspid;
+        }
+    }
+    if (!(fp = popen("pidof -s "STATUSBAR, "r")))
+        return -1;
+    if (fgets(buf, sizeof(buf), fp)) {  // Verificar que fgets tenga éxito
+        pclose(fp);
+        return strtoul(buf, NULL, 10);
+    }
+    pclose(fp);
+    return -1;
 }
 
 unsigned int
