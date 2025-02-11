@@ -40,6 +40,7 @@ dmenu.selforeground : #282c34
 
 ! Ajustes
 dwm.borderpx:          2
+dwm.smartborders:	   1
 dwm.snap:              32
 dwm.gappih:            2
 dwm.gappiv:   		   2
