@@ -1,4 +1,5 @@
 require("settings")
+require("keymap")
 require("autoclose")
 require("theme")
 require("lazyvim-plugins")

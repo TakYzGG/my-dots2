@@ -3,6 +3,7 @@
 # teclado
 #setxkbmap es
 #setxkbmap latam
+#setxkbmap us -variant dvorak
 #setxkbmap -option caps:swapescape
 
 # touchpad / mouse
