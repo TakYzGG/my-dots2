@@ -1,7 +1,7 @@
 #!/bin/sh
 
 opciones="Dracula\nGruvbox\nMinimal\nNord\nOnedark\nCancelar"
-selec=$(echo $opciones | dmenu -i -p "Selector de temas")
+selec=$(echo -e $opciones | dmenu -i -p "Selector de temas")
 case $selec in
 	Dracula) cp $HOME/.suckless/dracula $HOME/.Xresources
 			 cp $HOME/.config/nvim/lua/themes/nvim/dracula.lua $HOME/.config/nvim/lua/themes/nvim/theme.lua

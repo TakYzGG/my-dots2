@@ -1,0 +1,9 @@
+#/bin/sh
+
+opciones="Activar\nDesactivar\nCancelar"
+selec=$(echo -e $opciones | dmenu -i -p "Power Menu")
+case $selec in
+	Apagar) redshift -O 4000 ;;
+	Reiniciar) redshift -x ;;
+	Cancelar)  exit 0 ;;
+esac

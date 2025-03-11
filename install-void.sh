@@ -68,7 +68,7 @@ case $tipo_instalacion in
 	   ;;
 
 	# completa
-	2) xbps-install -y acpi alsa-utils audaciousc binutils blueman brightnessctl btop elogind exfat-utils firefox galculator gcc git glibc-devel gvfs leafpad libreoffice libX11-devel libXft-devel libXinerama-devel libXrender-devel make mirage mpv NetworkManager neovim net-tools pamixer pavucontrol picom pkg-config p7zip pulseaudio pulseaudio-utils python3 ssr Thunar thunar-archive-plugin thunar-volman void-repo-multilib wget xarchiver xclip xinit xorg xz zip unzip
+	2) xbps-install -y acpi alsa-utils audaciousc binutils blueman brightnessctl btop elogind exfat-utils firefox galculator gcc git glibc-devel gvfs leafpad libreoffice libX11-devel libXft-devel libXinerama-devel libXrender-devel make mirage mpv NetworkManager neovim net-tools pamixer pavucontrol picom pkg-config p7zip pulseaudio pulseaudio-utils python3 redshift ssr Thunar thunar-archive-plugin thunar-volman void-repo-multilib wget xarchiver xclip xinit xorg xz zip unzip
 	   ;;
 	*) echo "Respuesta no valida" ;;
 esac
