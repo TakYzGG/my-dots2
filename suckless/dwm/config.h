@@ -32,6 +32,7 @@ static char *colors[][3] = {
     [SchemeTagsNorm] = { normfgcolor,    normbgcolor,  "#000000" }, /* Tagbar left unselected {text,background,not used but cannot be empty} */
     [SchemeInfoSel]  = { selfgcolor,     selbgcolor,   "#000000" }, /* infobar middle selected {text,background,not used but cannot be empty} */
     [SchemeInfoNorm] = { normfgcolor,    normbgcolor,  "#000000" }, /* infobar middle unselected {text,background,not used but cannot be empty} */
+	[SchemeStatus]   = { normfgcolor, 	 normbgcolor,  "#000000" }, /* statusbar right {text,background,not used} */
 };
 
 /* tagging */
@@ -135,6 +136,7 @@ static const Key keys[] = {
 //	Scripts
 	{ MODKEY, 						XK_F2, 	   spawn,		   SHCMD("Screenshot") },
 	{ MODKEY, 						XK_F3, 	   spawn,		   SHCMD("AppImage") },
+	{ MODKEY, 						XK_F4, 	   spawn,		   SHCMD("Luz-nocturna") },
 	{ MODKEY, 						XK_F10,	   spawn,		   SHCMD("Wallpaper") },
 	{ MODKEY,	 					XK_F11,	   spawn,		   SHCMD("Suckless-Themes") },
 	{ MODKEY, 						XK_F12,	   spawn,		   SHCMD("PowerMenu") },
