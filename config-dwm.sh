@@ -6,6 +6,11 @@ echo "-- Iniciando script para auto-configurar dwm y extras --\n"
 read -p "Presione ENTER para continuar" a
 clear
 
+# pedir nombre de usuario
+clear
+read -p "Nombre de usuario: " user
+clear
+
 # descargar my-dots2
 git clone https://github.com/TakYzGG/my-dots2
 

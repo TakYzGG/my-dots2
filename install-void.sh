@@ -64,11 +64,11 @@ fi
 
 case $tipo_instalacion in
 	# minima
-	1) xbps-install -y acpi alsa-utils binutils blueman brightnessctl elogind exfat-utils firefox gcc git glibc-devel gvfs libX11-devel libXft-devel libXinerama-devel libXrender-devel make NetworkManager neovim net-tools pamixer picom pkg-config p7zip pulseaudio pulseaudio-utils python3 void-repo-multilib wget xclip xinit xorg xz zip unzip
+	1) xbps-install -y acpi alsa-utils binutils blueman brightnessctl connman elogind exfat-utils firefox gcc git glibc-devel gvfs libX11-devel libXft-devel libXinerama-devel libXrender-devel make neovim net-tools pamixer picom pkg-config p7zip pulseaudio pulseaudio-utils python3 void-repo-multilib wget xclip xinit xorg xz zip unzip
 	   ;;
 
 	# completa
-	2) xbps-install -y acpi alsa-utils audaciousc binutils blueman brightnessctl btop elogind exfat-utils firefox galculator gcc git glibc-devel gvfs leafpad libreoffice libX11-devel libXft-devel libXinerama-devel libXrender-devel make mirage mpv NetworkManager neovim net-tools pamixer pavucontrol picom pkg-config p7zip pulseaudio pulseaudio-utils python3 redshift ssr Thunar thunar-archive-plugin thunar-volman void-repo-multilib wget xarchiver xclip xinit xorg xz zip unzip
+	2) xbps-install -y acpi alsa-utils audaciousc binutils blueman brightnessctl btop connman elogind exfat-utils firefox galculator gcc git glibc-devel gvfs leafpad libreoffice libX11-devel libXft-devel libXinerama-devel libXrender-devel make mirage mpv neovim net-tools pamixer pavucontrol picom pkg-config p7zip pulseaudio pulseaudio-utils python3 redshift ssr Thunar thunar-archive-plugin thunar-volman void-repo-multilib wget xarchiver xclip xinit xorg xz zip unzip
 	   ;;
 	*) echo "Respuesta no valida" ;;
 esac
@@ -150,14 +150,14 @@ ln -s /etc/sv/alsa /var/service
 # bluetooth
 ln -s /etc/sv/bluetoothd /var/service
 
+# connmand
+ln -s /etc/sv/connmand /var/service
+
 # dbus
 ln -s /etc/sv/dbus /var/service
 
 # elogind
 ln -s /etc/sv/elogind /var/service
-
-# NetworkManager
-ln -s /etc/sv/NetworkManager /var/service
 
 # permisos al usuario
 usermod -aG bluetooth $user
