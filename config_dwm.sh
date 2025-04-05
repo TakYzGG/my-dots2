@@ -29,7 +29,7 @@ cp my-dots2/scripts/dmenu/PowerMenu /home/$user/.local/bin
 cp my-dots2/scripts/dmenu/Screenshot /home/$user/.local/bin
 cp my-dots2/scripts/dmenu/Suckless-Themes /home/$user/.local/bin
 cp my-dots2/scripts/dmenu/Wallpaper /home/$user/.local/bin
-chmod +x /home/$user/.local/bin*
+chmod +x /home/$user/.local/bin/*
 
 # copiar las fuentes
 cp my-dots2/fonts/* /home/$user/.local/share/fonts
