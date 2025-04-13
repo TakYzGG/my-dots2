@@ -8,6 +8,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.linespace = 0
 vim.opt.laststatus = 2
 vim.opt.guicursor = "n-v-c:ver25,i-ci-ve:ver25,r-cr-o:ver25"
+vim.opt.mouse = ""
 
 -- No crear archivos de respaldo
 vim.opt.backup = false
