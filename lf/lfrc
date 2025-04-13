@@ -1,21 +1,28 @@
-# Basic Settings
+# Configuraciones basicas
+set shell sh
+set shellopts '-eu'
+set scrolloff 10
+set drawbox true
 set ignorecase true
-set rulerfmt "%d  |%a  |%p  |\033[7;31m %m \033[0m  |\033[7;33m %c \033[0m  |\033[7;35m %s \033[0m  |\033[7;34m %f \033[0m  |%i/%t"
 
-# Custom Functions
+# Funciones personalizadas
+# Crear carpeta
 cmd mkdir ${{
   printf "Nombre del directorio: "
-  read ans
-  mkdir $ans
+  read name
+  mkdir "$name"
+  clear
 }}
 
+# crear archivo
 cmd mkfile ${{
   printf "Nombre del archivo: "
-  read ans
-  touch $ans
+  read name
+  touch "$name"
+  clear
 }}
 
-# Archive bindings
+# Descomprimir archivos
 cmd descomprimir ${{
   case "$f" in
       *.zip) unzip "$f" ;;
@@ -27,7 +34,6 @@ cmd descomprimir ${{
       *) echo "Formato no soportado" ;;
   esac
 }}
-zip -r archivos.zip *
 
 # Papelera
 cmd trash ${{
@@ -46,44 +52,54 @@ cmd delete ${{
     set -f
 	rm -rf $fx
 }}
+
+# Abrir archivos
+#
 cmd open ${{
-  case $(file --mime-type $f -b) in
-    image/vnd.djvu|application/pdf|application/octet-stream) setsid -f mupdf $fx >/dev/null 2>&1 ;;
-	text/*) lf -remote "send $id \$nvim \$fx";;
-    image/x-xcf|image/svg+xml) setsid -f gimp $f >/dev/null 2>&1 ;;
-  	image/*) feh --auto-zoom "$fx" & ;;
-    audio/*) mpv --audio-display=no $f ;;
-    video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
-    application/pdf|application/vnd*|application/epub*) setsid -f mupdf $fx >/dev/null 2>&1 ;;
-    *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
+  export TERMINAL="st"
+  export EDITOR="nvim"
+  export OPENER="xdg-open"
+  mime=$(file --mime-type "$f" -b)
+  case "$mime" in
+    image/vnd.djvu|application/pdf|application/octet-stream|application/vnd*|application/epub*)
+      setsid -f mupdf "$fx" >/dev/null 2>&1 ;;
+    text/*)
+      setsid -f "$TERMINAL" -e "$EDITOR" "$fx" >/dev/null 2>&1 ;;
+    image/x-xcf|image/svg+xml)
+      setsid -f gimp "$f" >/dev/null 2>&1 ;;
+    image/*)
+      feh --auto-zoom "$fx" & ;;
+    audio/*ba)
+      mpv --audio-display=no "$f" ;;
+    video/*)
+      setsid -f mpv "$f" -quiet >/dev/null 2>&1 ;;
+    *)
+      for f in $fx; do setsid -f "$OPENER" "$f" >/dev/null 2>&1; done ;;
   esac
 }}
 
-cmd on-select &{{
-    lf -remote "send $id set statfmt \"$(exa -ld --color=always "$f")\""
-}}
-
-# Bindings
+# Mapeos
 map c
 map d
 map m
 
-# Basic Functions
+# Mapeo funciones
 map . set hidden!
 map ac descomprimir
 map dd trash
 map dc trash_clear
 map de delete
-map p paste
 map x cut
 map y copy
+map p paste
+map u :unselect; clear
 map <enter> open
 map R reload
 map mf mkfile
 map md mkdir
 map C clear
 
-# Movement
+# Cambiar de directorio
 map gc cd ~/.config
 map gD cd ~/Documentos
 map gd cd ~/Descargas
