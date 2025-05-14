@@ -39,12 +39,11 @@ static char *colors[][3] = {
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
+	/* comando para saber class:
+	 xprop | grep WM_CLASS -> WM_CLASS(STRING) = "Instancia", "Clase"
 	 */
 	/* class        instance    title       tags mask     isfloating   monitor */
-	{ "LibreWolf",  NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "librewolf",  NULL, 		NULL, 		1 << 2, 	  0, 		   -1 },
 };
 
 /* layout(s) */
@@ -94,7 +93,7 @@ static const Layout layouts[] = {
  */
 ResourcePref resources[] = {
 		{ "borderpx",          	INTEGER, &borderpx },
-		{ "smartborders",       INTEGER, &smartborders },
+//		{ "smartborders",       INTEGER, &smartborders },
 		{ "snap",          		INTEGER, &snap },
 		{ "gappih",        		INTEGER, &gappih },
 		{ "gappiv",       		INTEGER, &gappiv },
