@@ -4,7 +4,7 @@ static const Block blocks[] = {
 	/*Icon*/	/*Command*/										/*Update Interval*/	/*Update Signal*/
 	{"", sc("volumen.sh"),												0,		10},
 	{"", sc("brillo.sh"),												0,		10},
-	{"", sc("bateria.sh"),												300,	10},
+	{"", sc("bateria.sh"),												300,	0},
 	{"", sc("wifi.sh"),													300,	0},
 	{"", "date +'%H:%M'",												5,		0},
 };

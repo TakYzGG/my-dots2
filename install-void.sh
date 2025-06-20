@@ -64,11 +64,18 @@ fi
 
 case $tipo_instalacion in
 	# minima
-	1) xbps-install -y acpi alsa-utils binutils blueman brightnessctl connman elogind exfat-utils firefox gcc git glibc-devel gvfs libX11-devel libXft-devel libXinerama-devel libXrender-devel make neovim net-tools pamixer picom pkg-config p7zip pulseaudio pulseaudio-utils python3 void-repo-multilib wget xclip xinit xorg xz zip unzip
+	1) xbps-install -y acpi alsa-utils binutils blueman brightnessctl connman elogind exfat-utils \
+	   firefox gcc git glibc-devel gvfs libX11-devel libXft-devel libXinerama-devel libXrender-devel \
+	   make neovim net-tools pamixer picom pkg-config p7zip pulseaudio pulseaudio-utils python3 \
+	   void-repo-multilib wget xclip xinit xorg xz zip unzip
 	   ;;
 
 	# completa
-	2) xbps-install -y acpi alsa-utils audaciousc binutils blueman brightnessctl btop connman elogind exfat-utils firefox galculator gcc git glibc-devel gvfs leafpad libreoffice libX11-devel libXft-devel libXinerama-devel libXrender-devel make mirage mpv neovim net-tools pamixer pavucontrol picom pkg-config p7zip pulseaudio pulseaudio-utils python3 redshift ssr Thunar thunar-archive-plugin thunar-volman void-repo-multilib wget xarchiver xclip xinit xorg xz zip unzip
+	2) xbps-install -y acpi alsa-utils audaciousc binutils blueman brightnessctl btop connman elogind \
+	   exfat-utils firefox galculator gcc git glibc-devel gvfs leafpad libreoffice libX11-devel libXft-devel \
+	   libXinerama-devel libXrender-devel make mirage mpv neovim net-tools pamixer pavucontrol picom pkg-config \
+	   p7zip pulseaudio pulseaudio-utils python3 redshift ssr Thunar thunar-archive-plugin thunar-volman \
+	   void-repo-multilib wget xarchiver xclip xinit xorg xz zip unzip
 	   ;;
 	*) echo "Respuesta no valida" ;;
 esac

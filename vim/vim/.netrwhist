@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/takyz/.vim/plugged/lightline.vim/autoload/lightline/colorscheme'
+let g:netrw_dirhist_5='/home/takyz/.vim/plugged/lightline.vim/autoload/lightline'
+let g:netrw_dirhist_4='/home/takyz/.vim/plugged/lightline.vim/autoload/lightline/my-themes'
+let g:netrw_dirhist_3='/home/takyz/.vim/plugged/lightline.vim/autoload/lightline'
+let g:netrw_dirhist_2='/home/takyz/.local/share/nvim/lazy/vim-airline/autoload/airline/themes'
+let g:netrw_dirhist_1='/home/takyz/.vim'
+let g:netrw_dirhist_0='/home/takyz/python'
+let g:netrw_dirhist_9='/home/takyz/pkg/dwm'
+let g:netrw_dirhist_8='/home/takyz/.config/autostart'
+let g:netrw_dirhist_7='/home/takyz/pkg/dwm'
