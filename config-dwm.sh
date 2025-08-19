@@ -25,7 +25,10 @@ mkdir /home/$user/.suckless
 cp -r my-dots2/suckless/temas/* /home/$user/.suckless 
 
 # copiar scripts para dwmblocks
-cp my-dots2/scripts/bars/* /home/$user/.config/dwmblocks
+cp my-dots2/scripts/bars/bateria.sh /home/$user/.config/dwmblocks
+cp my-dots2/scripts/bars/brillo.sh /home/$user/.config/dwmblocks
+cp my-dots2/scripts/bars/volumen.sh /home/$user/.config/dwmblocks
+cp my-dots2/scripts/bars/wifi_connman.sh /home/$user/.config/dwmblocks
 chmod +x /home/$user/.config/dwmblocks/*
 
 # copiar scripts de dmenu
