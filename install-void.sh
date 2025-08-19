@@ -13,19 +13,19 @@ clear
 echo "-- Repocitorio non-free --"
 echo "[1] si"
 echo "[2] no"
-read -p "Opcion: " repo_nonfree
+read -p ">>> " repo_nonfree
 clear
 
 echo "-- Tipo de instalacion --"
 echo "[1] minima"
 echo "[2] completa"
-read -p "Opcion: " tipo_instalacion
+read -p ">>> " tipo_instalacion
 clear
 
 echo "-- Windows manager / Desktop environment --"
 echo "[1] Windows managar (wm)"
 echo "[2] Desktop environment (de)"
-read -p "Opcion: " wm_de
+read -p ">>> " wm_de
 clear
 
 case $wm_de in
@@ -35,7 +35,7 @@ case $wm_de in
 	   echo "[3] Fluxbox"
 	   echo "[4] I3 wm"
 	   echo "[5] Openbox"
-	   read -p "Opcion: " wm
+	   read -p ">>> " wm
 	   clear
 	   ;;
 	2) echo "-- Desktop environment --"
@@ -43,16 +43,22 @@ case $wm_de in
 	   echo "[2] Lxde"
 	   echo "[3] Mate"
 	   echo "[4] Xfce"
-	   read -p "Opcion: " de
+	   read -p ">>> " de
 	   clear
 	   ;;
 	*) echo "Respuesta no valida" ;;
 esac
 
+echo "-- Navegador web --"
+echo "[1] Firefox"
+echo "[2] Librewolf"
+read -p ">>> " browser
+clear
+
 echo "-- Zram --"
 echo "[1] si"
 echo "[2] no"
-read -p "Opcion: " zram
+read -p ">>> " zram
 clear
 
 # Actualizar el sistema / descargar paquetes
@@ -65,14 +71,14 @@ fi
 case $tipo_instalacion in
 	# minima
 	1) xbps-install -y acpi alsa-utils binutils blueman brightnessctl connman elogind exfat-utils \
-	   firefox gcc git glibc-devel gvfs libX11-devel libXft-devel libXinerama-devel libXrender-devel \
+	   gcc git glibc-devel gvfs libX11-devel libXft-devel libXinerama-devel libXrender-devel \
 	   make neovim net-tools pamixer picom pkg-config p7zip pulseaudio pulseaudio-utils python3 \
 	   void-repo-multilib wget xclip xinit xorg xz zip unzip
 	   ;;
 
 	# completa
 	2) xbps-install -y acpi alsa-utils audaciousc binutils blueman brightnessctl btop connman elogind \
-	   exfat-utils firefox galculator gcc git glibc-devel gvfs leafpad libreoffice libX11-devel libXft-devel \
+	   exfat-utils galculator gcc git glibc-devel gvfs leafpad libreoffice libX11-devel libXft-devel \
 	   libXinerama-devel libXrender-devel make mirage mpv neovim net-tools pamixer pavucontrol picom pkg-config \
 	   p7zip pulseaudio pulseaudio-utils python3 redshift ssr Thunar thunar-archive-plugin thunar-volman \
 	   void-repo-multilib wget xarchiver xclip xinit xorg xz zip unzip
@@ -133,6 +139,16 @@ case $de in
 
 	*) echo "Respuesta no valida" ;;
 esac
+
+# instalar navegador
+case $browser in
+    1) xbps-install -y firefox
+       ;;
+
+    # librewolf
+    2) echo 'repository=https://github.com/index-0/librewolf-void/releases/latest/download/' > /etc/xbps.d/20-librewolf.conf
+       xbps-install -Su librewolf
+       ;;
 
 # intalar zram
 if [ "$zram" -eq 1 ]; then

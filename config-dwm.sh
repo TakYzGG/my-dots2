@@ -48,6 +48,10 @@ cp picom/picom.conf /home/$user/.config
 # copiar configuracion de nvim
 cp -r /my-dots2/nvim /home/$user/.config 
 
+# cargar un tema para evitar errores
+cp $HOME/.suckless/minimal $HOME/.Xresources
+xrdb -merge ~/.Xresources
+
 # final del script
 clear
 echo "-- Termino la configuracion --"

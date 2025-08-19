@@ -14,7 +14,7 @@ echo "-- personalizar --"
 echo "[1] Windows managar (wm)"
 echo "[2] Desktop environment (de)"
 echo "[3] Extras"
-read -p "Opcion: " personalizar
+read -p ">>> " personalizar
 clear
 
 case $personalizar in
@@ -24,7 +24,7 @@ case $personalizar in
 	   echo "[3] Fluxbox"
 	   echo "[4] I3 wm"
 	   echo "[5] Openbox"
-	   read -p "Opcion: " wm
+	   read -p ">>> " wm
 	   clear
 	   ;;
 	2) echo "-- Desktop environment --"
@@ -32,7 +32,7 @@ case $personalizar in
 	   echo "[2] Lxde"
 	   echo "[3] Mate"
 	   echo "[4] Xfce"
-	   read -p "Opcion: " de
+	   read -p ">>> " de
 	   clear
 	   ;;
 	3) echo "-- Extras --"
@@ -41,7 +41,7 @@ case $personalizar in
 	   echo "[3] Neo vim"
 	   echo "[4] Vim"
 	   echo "[5] Zsh"
-	   read -p "Opcion: " extras
+	   read -p ">>> " extras
 	   clear
 	   ;;
 	*) echo "Respuesta no valida" ;;
