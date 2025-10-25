@@ -13,6 +13,11 @@ vim.opt.laststatus = 2
 vim.opt.guicursor = "n-v-c:ver25,i-ci-ve:ver25,r-cr-o:ver25"
 vim.opt.mouse = ""
 
+-- No poner automaticamente el simbolo del comentario al precionar enter
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  command = "setlocal formatoptions-=r formatoptions-=o",
+})
 
 -- No crear archivos de respaldo
 vim.opt.backup = false
