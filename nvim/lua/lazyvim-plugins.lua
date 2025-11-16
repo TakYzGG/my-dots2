@@ -3,8 +3,14 @@ vim.opt.rtp:prepend("~/.config/nvim/lazy/lazy.nvim")
 
 -- Lazy.vim | Plugins
 require("lazy").setup({
-  { "itchyny/lightline.vim" },
+    {'nvim-lualine/lualine.nvim',}
 })
 
--- Plugins | Lightline
-vim.g.lightline = { colorscheme = 'theme' }
+-- LuaLine --
+require('lualine').setup {
+    options = { theme = require('themes.lualine.theme'),
+        section_separators = "",
+        component_separators = "",
+        icons_enabled = false,
+    };
+}
