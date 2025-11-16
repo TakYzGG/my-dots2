@@ -16,7 +16,7 @@ dwm.selbordercolor: #bd93f9
 st.background:  #282a36
 st.foreground:  #f8f8f2
 st.cursorColor: #f8f8f2
-st.color0:  #000000
+st.color0:  #282a36
 st.color1:  #ff5555
 st.color2:  #50fa7b
 st.color3:  #f1fa8c
