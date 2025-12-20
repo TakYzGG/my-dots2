@@ -7,26 +7,31 @@ case $selec in
 			 cp $HOME/.config/nvim/lua/themes/nvim/dracula.lua $HOME/.config/nvim/lua/themes/nvim/theme.lua
 			 cp $HOME/.config/nvim/lua/themes/lualine/dracula.lua $HOME/.config/nvim/lua/themes/lualine/theme.lua
 		 	 xrdb -merge ~/.Xresources
+             pidof st | xargs kill -s USR1
 			 ;;
 	Gruvbox) cp $HOME/.suckless/gruvbox $HOME/.Xresources
 			 cp $HOME/.config/nvim/lua/themes/nvim/gruvbox.lua $HOME/.config/nvim/lua/themes/nvim/theme.lua
 			 cp $HOME/.config/nvim/lua/themes/lualine/gruvbox.lua $HOME/.config/nvim/lua/themes/lualine/theme.lua
 		 	 xrdb -merge ~/.Xresources
+             pidof st | xargs kill -s USR1
 			 ;;
 	Minimal) cp $HOME/.suckless/minimal $HOME/.Xresources
 			 cp $HOME/.config/nvim/lua/themes/nvim/minimal.lua $HOME/.config/nvim/lua/themes/nvim/theme.lua
 			 cp $HOME/.config/nvim/lua/themes/lualine/minimal.lua $HOME/.config/nvim/lua/themes/lualine/theme.lua
 		 	 xrdb -merge ~/.Xresources
+             pidof st | xargs kill -s USR1
 			 ;;
 	Nord)    cp $HOME/.suckless/nord $HOME/.Xresources
 			 cp $HOME/.config/nvim/lua/themes/nvim/nord.lua $HOME/.config/nvim/lua/themes/nvim/theme.lua
 			 cp $HOME/.config/nvim/lua/themes/lualine/nord.lua $HOME/.config/nvim/lua/themes/lualine/theme.lua
 		 	 xrdb -merge ~/.Xresources
+             pidof st | xargs kill -s USR1
 			 ;;
 	Onedark) cp $HOME/.suckless/onedark $HOME/.Xresources
 			 cp $HOME/.config/nvim/lua/themes/nvim/onedark.lua $HOME/.config/nvim/lua/themes/nvim/theme.lua
 			 cp $HOME/.config/nvim/lua/themes/lualine/onedark.lua $HOME/.config/nvim/lua/themes/lualine/theme.lua
 		 	 xrdb -merge ~/.Xresources
+             pidof st | xargs kill -s USR1
 			 ;;
 	Cancelar)
 		exit 0 ;;
