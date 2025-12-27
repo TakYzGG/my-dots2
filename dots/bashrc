@@ -29,6 +29,17 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias mkdir='mkdir -pv'
 
+# Git
+alias gst='git status'
+alias gcm='git commit -m'
+alias gaa='git add --all'
+alias ga='git add'
+alias gco='git checkout'
+alias gb='git branch'
+alias gl='git pull'
+alias gp='git push'
+alias glog='git log'
+
 # Acortar comandos
 alias e='nvim'
 alias untar='tar xvf'
